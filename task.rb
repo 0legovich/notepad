@@ -12,7 +12,8 @@ class Task < Post
     @text = STDIN.gets.chomp
 
     puts "К какому числу? Укажите дату в формате ДД.ММ.ГГГГ, например 01.01.2017"
-    input = STDIN.gets.chomp
+    input = nil
+    input = STDIN.gets.chomp until input =~ /\A\d{2}\.\d{2}\.\d{4}\z/
 
     @due_date = Date.parse(input)
   end
